@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/"
+title = "Cloudy Vapours"
+version = "1.0.0"
+id = "artifacts/cloudy-vapours"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 21948
+
+[services.development]
+run = "pnpm --filter @workspace/cloudy-vapours run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/cloudy-vapours", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/cloudy-vapours/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21948"
+BASE_PATH = "/"

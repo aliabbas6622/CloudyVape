@@ -1,0 +1,150 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Pod Systems"
+    },
+    {
+      "id": 2,
+      "name": "Box Mods"
+    },
+    {
+      "id": 3,
+      "name": "Disposables"
+    },
+    {
+      "id": 4,
+      "name": "E-Liquids"
+    },
+    {
+      "id": 5,
+      "name": "Accessories"
+    },
+    {
+      "id": 6,
+      "name": "Coils & Tanks"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Vaporesso XROS 4",
+      "price": 5500,
+      "description": "The Vaporesso XROS 4 pod system delivers exceptional flavor with its COREX 2.0 heating technology. Features adjustable airflow, 1000mAh battery, and sleek ergonomic design. Perfect for both MTL and RDL vaping.",
+      "imageUrl": "",
+      "categoryId": 1,
+      "featured": 1,
+      "inStock": 1,
+      "createdAt": "2026-07-04T06:10:37.618Z"
+    },
+    {
+      "id": 2,
+      "name": "SMOK Nord 5",
+      "price": 4800,
+      "description": "Next-gen pod system with 2000mAh battery, 0.69\" OLED screen, and 5ml pod capacity. Compatible with RPM 3 coils for unmatched cloud production and flavor.",
+      "imageUrl": "",
+      "categoryId": 1,
+      "featured": 1,
+      "inStock": 1,
+      "createdAt": "2026-07-04T06:10:37.619Z"
+    },
+    {
+      "id": 3,
+      "name": "GeekVape Aegis Legend 3",
+      "price": 14500,
+      "description": "Triple-proof (water, dust, shock) box mod with dual 18650 batteries, 200W output, and the iconic Aegis durability. Features A-Lock safety system and 1.08\" TFT color display.",
+      "imageUrl": "",
+      "categoryId": 2,
+      "featured": 1,
+      "inStock": 1,
+      "createdAt": "2026-07-04T06:10:37.619Z"
+    },
+    {
+      "id": 4,
+      "name": "Voopoo Drag 4",
+      "price": 12000,
+      "description": "Flagship dual-battery mod with GENE.TT 2.0 chip, 177W max output, and stunning resin panels. Lightning-fast 0.001s firing speed.",
+      "imageUrl": "",
+      "categoryId": 2,
+      "featured": 0,
+      "inStock": 1,
+      "createdAt": "2026-07-04T06:10:37.619Z"
+    },
+    {
+      "id": 5,
+      "name": "ELF Bar BC5000",
+      "price": 2800,
+      "description": "Premium rechargeable disposable with 5000 puffs, 650mAh rechargeable battery, and 13ml pre-filled e-liquid. Available in 50+ flavors.",
+      "imageUrl": "",
+      "categoryId": 3,
+      "featured": 1,
+      "inStock": 1,
+      "createdAt": "2026-07-04T06:10:37.619Z"
+    },
+    {
+      "id": 6,
+      "name": "Lost Mary MO5000",
+      "price": 2500,
+      "description": "Mesh coil disposable delivering rich, consistent flavor across 5000 puffs. Rechargeable USB-C with comfortable ergonomic grip.",
+      "imageUrl": "",
+      "categoryId": 3,
+      "featured": 0,
+      "inStock": 1,
+      "createdAt": "2026-07-04T06:10:37.619Z"
+    },
+    {
+      "id": 7,
+      "name": "Nasty Juice Cushman Series",
+      "price": 3200,
+      "description": "Award-winning Malaysian e-liquid. The Cushman mango with its creamy, tropical notes is a global bestseller. 60ml bottle, available in 3mg and 6mg nicotine.",
+      "imageUrl": "",
+      "categoryId": 4,
+      "featured": 0,
+      "inStock": 1,
+      "createdAt": "2026-07-04T06:10:37.619Z"
+    },
+    {
+      "id": 8,
+      "name": "Dinner Lady Lemon Tart",
+      "price": 3500,
+      "description": "UK's #1 award-winning e-liquid. Rich lemon curd with buttery pastry base and light meringue finish. 60ml bottle in 3mg and 6mg options.",
+      "imageUrl": "",
+      "categoryId": 4,
+      "featured": 1,
+      "inStock": 1,
+      "createdAt": "2026-07-04T06:10:37.619Z"
+    },
+    {
+      "id": 9,
+      "name": "Uwell Caliburn G3 Pods (4-Pack)",
+      "price": 1800,
+      "description": "Replacement pods for the Caliburn G3 system. 2.5ml capacity with built-in 0.6Ω and 0.9Ω coil options for versatile vaping.",
+      "imageUrl": "",
+      "categoryId": 5,
+      "featured": 0,
+      "inStock": 1,
+      "createdAt": "2026-07-04T06:10:37.619Z"
+    },
+    {
+      "id": 10,
+      "name": "SMOK RPM 3 Coils (5-Pack)",
+      "price": 1500,
+      "description": "Mesh coil pack for RPM 3 series. 0.15Ω and 0.23Ω options for sub-ohm performance. Compatible with Nord 5, RPM 5, and RPM 5 Pro.",
+      "imageUrl": "",
+      "categoryId": 6,
+      "featured": 0,
+      "inStock": 1,
+      "createdAt": "2026-07-04T06:10:37.619Z"
+    }
+  ],
+  "settings": [
+    {
+      "key": "whatsappNumber",
+      "value": "923432389520"
+    },
+    {
+      "key": "adminPassword",
+      "value": "admin123"
+    }
+  ]
+}
