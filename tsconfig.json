@@ -25,7 +25,7 @@
       "@/*": ["./src/*"],
       "@assets/*": ["./attached_assets/attached_assets/*"]
     },
-    "ignoreDeprecations": "6.0"
+    "ignoreDeprecations": "5.0"
   },
   "include": ["src/**/*"]
 }
