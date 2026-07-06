@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { motion } from "framer-motion";
 import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
@@ -25,7 +26,14 @@ interface ProductCardProps {
   onViewDetail?: (id: number) => void;
 }
 
-export function ProductCard({ product, whatsappNumber = "923432389520", onViewDetail }: ProductCardProps) {
+/**
+ * ProductCard component optimized for performance:
+ * 1. Wrapped in React.memo to prevent unnecessary re-renders when the product list
+ *    is filtered or sorted but this specific product hasn't changed.
+ * 2. Uses lazy loading and async decoding for images to improve page load
+ *    and reduce main thread blocking during scroll.
+ */
+export const ProductCard = memo(function ProductCard({ product, whatsappNumber = "923432389520", onViewDetail }: ProductCardProps) {
   const [, navigate] = useLocation();
 
   const getFallbackImage = (categoryName?: string) => {
@@ -57,6 +65,10 @@ export function ProductCard({ product, whatsappNumber = "923432389520", onViewDe
         <img 
           src={imageUrl} 
           alt={product.name}
+          // Performance: lazy load images that are off-screen to save bandwidth
+          // and decoding="async" to keep the main thread free.
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
@@ -129,4 +141,4 @@ export function ProductCard({ product, whatsappNumber = "923432389520", onViewDe
       </div>
     </motion.div>
   );
-}
+});
