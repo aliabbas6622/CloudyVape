@@ -144,7 +144,7 @@
     },
     {
       "key": "adminPassword",
-      "value": "admin123"
+      "value": "$2b$10$GD9U7e0Hzqn/U9t2E7eG2.6MXUTPXeKr8tCeqrrqLw8GCjkuPEiCS"
     }
   ]
 }
