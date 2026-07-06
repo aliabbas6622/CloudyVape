@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useRoute, useLocation } from "wouter";
 import { motion } from "framer-motion";
-import { 
-  useGetProduct, 
-  useListProducts, 
+import {
+  useGetProduct,
+  useListProducts,
   useGetSettings,
   getGetProductQueryKey,
   getListProductsQueryKey
@@ -102,7 +102,7 @@ export default function ProductDetail() {
     .slice(0, 4);
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -110,17 +110,17 @@ export default function ProductDetail() {
     >
       <div className="container mx-auto px-4 py-8 md:py-16">
         <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-start">
-          
+
           {/* Left Column - Image */}
           <div className="relative group">
             <div className="absolute -inset-1 bg-gradient-to-r from-primary/30 to-secondary/30 rounded-3xl blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
             <div className="relative aspect-square rounded-3xl overflow-hidden bg-card border border-border shadow-2xl">
-              <img 
-                src={imageUrl} 
+              <img
+                src={imageUrl}
                 alt={product.name}
                 className="w-full h-full object-cover"
               />
-              
+
               {!product.inStock && (
                 <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px] flex items-center justify-center z-10">
                   <span className="bg-destructive text-white text-xl font-bold px-6 py-3 rounded-xl shadow-2xl rotate-12 border border-white/20 uppercase tracking-widest">
@@ -148,7 +148,7 @@ export default function ProductDetail() {
 
           {/* Right Column - Details */}
           <div className="flex flex-col space-y-8">
-            
+
             {/* Breadcrumb */}
             <div className="flex items-center gap-2 text-sm text-muted-foreground font-medium uppercase tracking-wider">
               <button onClick={() => navigate("/")} className="hover:text-primary transition-colors flex items-center"><Home className="h-4 w-4 mr-1" /> Home</button>
@@ -162,11 +162,11 @@ export default function ProductDetail() {
               <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest">
                 {product.categoryName}
               </div>
-              
+
               <h1 className="text-4xl md:text-5xl font-display font-black text-foreground leading-tight tracking-tight">
                 {product.name}
               </h1>
-              
+
               <div className="flex items-end gap-4">
                 <div className="text-3xl md:text-4xl font-mono font-bold text-primary text-glow-slate">
                   PKR {product.price.toLocaleString()}
@@ -196,13 +196,13 @@ export default function ProductDetail() {
 
             {/* Actions */}
             <div className="space-y-4">
-              <Button 
+              <Button
                 className="w-full h-16 rounded-full bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-lg shadow-[0_0_20px_rgba(37,211,102,0.4)] transition-all hover:shadow-[0_0_30px_rgba(37,211,102,0.6)] group overflow-hidden relative"
                 onClick={() => window.open(`https://wa.me/${whatsappNumber}?text=Hi, I'm interested in buying: ${product.name} (PKR ${product.price})`, '_blank')}
                 disabled={!product.inStock}
               >
                 <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
-                <MessageCircle className="mr-3 h-6 w-6 relative z-10" /> 
+                <MessageCircle className="mr-3 h-6 w-6 relative z-10" />
                 <span className="relative z-10">Order via WhatsApp</span>
               </Button>
               <p className="text-center text-sm text-muted-foreground font-medium">
@@ -235,7 +235,7 @@ export default function ProductDetail() {
             <h3 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-10 text-center">
               YOU MIGHT ALSO <span className="text-primary">LIKE</span>
             </h3>
-            
+
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {filteredRelated.map((relatedProduct, i) => (
                 <motion.div

@@ -1,9 +1,9 @@
 import { Suspense } from "react";
 import { motion } from "framer-motion";
 import { Link, useLocation } from "wouter";
-import { 
-  useGetFeaturedProducts, 
-  useGetProductStats, 
+import {
+  useGetFeaturedProducts,
+  useGetProductStats,
   useGetSettings,
   useListCategories,
   getGetFeaturedProductsQueryKey,
@@ -23,18 +23,18 @@ import eliquidImg from "@assets/generated_images/eliquid.jpg";
 export default function Home() {
   const [, navigate] = useLocation();
   const { data: stats } = useGetProductStats();
-  
+
   const { data: featuredProducts, isLoading: featuredLoading } = useGetFeaturedProducts({
     query: { queryKey: getGetFeaturedProductsQueryKey() }
   });
-  
+
   const { data: categories } = useListCategories({
     query: { queryKey: getListCategoriesQueryKey() }
   });
 
   const { data: settings } = useGetSettings();
   const whatsappNumber = settings?.whatsappNumber ?? "923432389520";
-  
+
   // Fallback data if API doesn't return featured products
   const displayProducts = featuredProducts?.length ? featuredProducts : [
     { id: 1, name: "Neon Pod X", price: 4500, categoryName: "Pod Systems", imageUrl: podSystemImg, description: "Premium pod system", inStock: true },
@@ -55,7 +55,7 @@ export default function Home() {
   };
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -132,7 +132,7 @@ export default function Home() {
     </section>
 
       {/* Trust Badges Bar */}
-      <motion.section 
+      <motion.section
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -235,7 +235,7 @@ export default function Home() {
       </section>
 
       {/* Promotional Banner */}
-      <motion.section 
+      <motion.section
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -268,7 +268,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto rounded-3xl border border-border bg-white p-8 md:p-12 relative overflow-hidden shadow-sm">
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 blur-[80px] rounded-full pointer-events-none" />
-            
+
             <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
                 <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground">Visit the <span className="text-primary">Studio</span></h2>
@@ -296,7 +296,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              
+
               <div className="flex flex-col items-center justify-center space-y-6 text-center p-8 border border-border rounded-3xl bg-muted/40">
                 <div className="h-20 w-20 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-[0_0_30px_rgba(97,155,182,0.4)]">
                   <MessageCircle className="h-10 w-10 text-white" />

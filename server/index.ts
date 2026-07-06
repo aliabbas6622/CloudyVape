@@ -36,7 +36,6 @@ const loginLimiter = rateLimit({
   standardHeaders: true,
   legacyHeaders: false,
 });
-
 // CORS setup
 app.use(cors({
   origin: true,
@@ -78,7 +77,6 @@ if (process.env.NODE_ENV === 'production') {
     }
   });
 }
-
 // Start server
 app.listen(port, () => {
   console.log(`[server] Backend listening on port ${port}`);

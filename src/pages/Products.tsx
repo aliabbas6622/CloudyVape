@@ -17,7 +17,7 @@ export default function Products() {
     const cat = params.get('category');
     return cat ? parseInt(cat, 10) : null;
   });
-  
+
   const [searchQuery, setSearchQuery] = useState(() => {
     const params = new URLSearchParams(window.location.search);
     return params.get('search') ?? '';
@@ -30,13 +30,13 @@ export default function Products() {
     const params = new URLSearchParams(window.location.search);
     const cat = params.get('category');
     const search = params.get('search');
-    
+
     if (cat) {
       setSelectedCategory(parseInt(cat, 10));
     } else {
       setSelectedCategory(null);
     }
-    
+
     if (search) {
       setSearchQuery(search);
     } else {
@@ -51,21 +51,21 @@ export default function Products() {
     { categoryId: selectedCategory || undefined },
     { query: { queryKey: getListProductsQueryKey({ categoryId: selectedCategory || undefined }) } }
   );
-  
+
   const { data: settings } = useGetSettings();
   const whatsappNumber = settings?.whatsappNumber ?? "923432389520";
 
   // Client-side filtering & sorting
   const filteredAndSortedProducts = useMemo(() => {
     if (!products) return [];
-    
+
     let result = [...products];
 
     // Filter by search query
     if (searchQuery.trim()) {
       const query = searchQuery.toLowerCase();
-      result = result.filter(p => 
-        p.name.toLowerCase().includes(query) || 
+      result = result.filter(p =>
+        p.name.toLowerCase().includes(query) ||
         (p.description && p.description.toLowerCase().includes(query)) ||
         (p.categoryName && p.categoryName.toLowerCase().includes(query))
       );
@@ -104,7 +104,7 @@ export default function Products() {
   };
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -119,7 +119,7 @@ export default function Products() {
             <ChevronRight className="h-3 w-3" />
             <span className="text-foreground font-semibold">Products</span>
           </div>
-          
+
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
               <h1 className="text-4xl md:text-5xl font-display font-black tracking-tight text-foreground mb-4">
@@ -135,7 +135,7 @@ export default function Products() {
       </div>
 
       <div className="container mx-auto px-4 py-8">
-        
+
         {/* Toolbar */}
         <div className="flex flex-col gap-4 mb-8 bg-card p-4 sm:p-5 rounded-3xl border border-border shadow-sm">
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
@@ -160,15 +160,15 @@ export default function Products() {
           <div className="flex flex-col lg:flex-row items-center gap-4">
             <div className="relative w-full lg:w-1/2">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-              <Input 
-                type="text" 
-                placeholder="Search by name, category or flavor..." 
+              <Input
+                type="text"
+                placeholder="Search by name, category or flavor..."
                 className="pl-11 pr-10 h-12 bg-muted border-border focus-visible:ring-primary focus-visible:border-primary rounded-2xl w-full text-foreground placeholder:text-muted-foreground/60"
                 value={searchQuery}
                 onChange={(e) => handleSearchChange(e.target.value)}
               />
               {searchQuery && (
-                <button 
+                <button
                   className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
                   onClick={() => handleSearchChange("")}
                 >
@@ -195,7 +195,7 @@ export default function Products() {
         </div>
 
         <div className="flex flex-col lg:flex-row gap-10">
-          
+
           {/* Desktop Sidebar */}
           <aside className="hidden lg:block w-64 shrink-0">
             <div className="sticky top-28 space-y-6">
@@ -209,8 +209,8 @@ export default function Products() {
                     onClick={() => handleCategorySelect(null)}
                     className={cn(
                       "w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-semibold transition-all duration-300",
-                      selectedCategory === null 
-                        ? "bg-primary text-white shadow-[0_0_15px_rgba(97,155,182,0.3)]" 
+                      selectedCategory === null
+                        ? "bg-primary text-white shadow-[0_0_15px_rgba(97,155,182,0.3)]"
                         : "text-muted-foreground hover:bg-muted hover:text-foreground"
                     )}
                   >
@@ -222,8 +222,8 @@ export default function Products() {
                       onClick={() => handleCategorySelect(cat.id)}
                       className={cn(
                         "w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-semibold transition-all duration-300",
-                        selectedCategory === cat.id 
-                          ? "bg-primary text-white shadow-[0_0_15px_rgba(97,155,182,0.3)]" 
+                        selectedCategory === cat.id
+                          ? "bg-primary text-white shadow-[0_0_15px_rgba(97,155,182,0.3)]"
                           : "text-muted-foreground hover:bg-muted hover:text-foreground"
                       )}
                     >
@@ -249,7 +249,7 @@ export default function Products() {
                 ))}
               </div>
             ) : filteredAndSortedProducts.length === 0 ? (
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 className="flex flex-col items-center justify-center py-20 text-center border border-border rounded-3xl bg-card shadow-sm"
@@ -261,7 +261,7 @@ export default function Products() {
                 <p className="text-muted-foreground text-lg max-w-md mb-8">
                   We couldn't find anything matching your current filters. Try adjusting your search or category.
                 </p>
-                <Button 
+                <Button
                   className="rounded-full bg-primary text-white hover:bg-primary/90 font-bold px-8 h-12"
                   onClick={clearFilters}
                 >
@@ -292,4 +292,3 @@ export default function Products() {
     </motion.div>
   );
 }
-
