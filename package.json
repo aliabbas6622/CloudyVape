@@ -9,6 +9,7 @@
     "dev:client": "vite",
     "build": "vite build",
     "preview": "vite preview"
+    "start": "NODE_ENV=production tsx server/index.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
