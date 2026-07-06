@@ -60,8 +60,7 @@ export default function AdminLogin() {
     <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center py-12 px-4 relative overflow-hidden">
       {/* Background effects */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
-
-      <motion.div
+      <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         className="w-full max-w-md relative z-10"
@@ -92,8 +91,8 @@ export default function AdminLogin() {
               </div>
             </div>
 
-            <Button
-              type="submit"
+            <Button 
+              type="submit" 
               className="w-full h-12 rounded-full text-lg font-bold bg-primary hover:bg-primary/90 text-white shadow-[0_0_15px_rgba(97,155,182,0.3)] transition-all"
               disabled={loginMutation.isPending || !password}
             >

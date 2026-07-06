@@ -1,15 +1,16 @@
 import { Router } from 'express';
 import db from '../db.js';
+import bcrypt from 'bcryptjs';
 
 const router = Router();
 
 // POST /api/admin/login
-router.post('/login', (req, res) => {
+router.post('/login', async (req, res) => {
   const { password } = req.body;
-
+  
   const storedPassword = db.prepare("SELECT value FROM settings WHERE key = 'adminPassword'").get() as { value: string } | undefined;
-
-  if (!storedPassword || password !== storedPassword.value) {
+  
+  if (!storedPassword || !password || !(await bcrypt.compare(password, storedPassword.value))) {
     return res.status(401).json({ error: 'Invalid password' });
   }
 

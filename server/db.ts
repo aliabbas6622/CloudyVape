@@ -185,7 +185,7 @@ if (data.categories.length === 0) {
 
   data.settings = [
     { key: 'whatsappNumber', value: '923432389520' },
-    { key: 'adminPassword', value: 'admin123' }
+    { key: 'adminPassword', value: '$2b$10$GD9U7e0Hzqn/U9t2E7eG2.6MXUTPXeKr8tCeqrrqLw8GCjkuPEiCS' }
   ];
 
   save();
