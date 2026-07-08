@@ -237,8 +237,9 @@ export default function Products() {
 
           {/* Product Grid */}
           <main className="flex-1">
+            <AnimatePresence mode="wait">
             {isLoading ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+              <motion.div key="loading" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }} className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
                 {[...Array(6)].map((_, i) => (
                   <div key={i} className="flex flex-col gap-4">
                     <Skeleton className="aspect-square w-full rounded-2xl bg-muted" />
@@ -247,7 +248,7 @@ export default function Products() {
                     <Skeleton className="h-10 w-full rounded-full bg-muted mt-auto" />
                   </div>
                 ))}
-              </div>
+              </motion.div>
             ) : filteredAndSortedProducts.length === 0 ? (
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
@@ -269,7 +270,7 @@ export default function Products() {
                 </Button>
               </motion.div>
             ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+              <motion.div key="grid" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
                 <AnimatePresence mode="popLayout">
                   {filteredAndSortedProducts.map((product, i) => (
                     <motion.div
@@ -284,8 +285,9 @@ export default function Products() {
                     </motion.div>
                   ))}
                 </AnimatePresence>
-              </div>
+              </motion.div>
             )}
+            </AnimatePresence>
           </main>
         </div>
       </div>
